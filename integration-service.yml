@@ -13,7 +13,7 @@ spring:
   jpa:у5кукпуцккпумкпцацу4
     hibernate:22а2а2аа2а2а2а2ацуцуцуцуцуцуцу
       ddl-auto: updatefwfwfwfwfwfwf
-    show-sql: false1111
+    show-sql: false111111111
     open-in-view: false
   security:
     oauth2:
