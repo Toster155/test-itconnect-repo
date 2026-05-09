@@ -10,7 +10,7 @@ spring:
     driver-class-name: org.postgresql.Driver
 
     ууауауаууауауауауауауауа
-  jpa:
+  jpa:у5кукпуцккпумкпцацу4
     hibernate:22а2а2аа2а2а2а2а
       ddl-auto: update
     show-sql: false1111
