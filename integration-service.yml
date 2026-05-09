@@ -4,7 +4,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://postgres-service:5432/itconnect_integration
+    url: jdbc:postgresql://postgres-service:5432/itconnect_integrationwwwwwwwwqqwqwwqwq
     username: postgres
     password: ${POSTGRES_PASSWORD:12345}
     driver-class-name: org.postgresql.Driver
