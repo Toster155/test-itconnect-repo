@@ -19,7 +19,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: ${JWK_SET_URI:http://auth-service-backend:8081/oauth2/jwks}
+          jwk-set-uri: ${JWK_SET_URI:http://auth-service-backend:8081/oauth2/jwks}цвцвцвцвцв
   cloud:
     compatibility-verifier:
       enabled: false
