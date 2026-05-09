@@ -1,0 +1,76 @@
+server:
+  port: 8084
+  forward-headers-strategy: framework
+
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-service:5432/itconnect_integration
+    username: postgres
+    password: ${POSTGRES_PASSWORD:12345}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI:http://auth-service-backend:8081/oauth2/jwks}
+  cloud:
+    compatibility-verifier:
+      enabled: false
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    tags-sorter: alpha
+    operations-sorter: method
+    display-request-duration: true
+    doc-expansion: none
+    filter: true
+    show-actuator: false
+    use-fqn: true
+    default-produces-media-type: application/json
+    default-consumes-media-type: application/json
+
+nats:
+  url: ${NATS_URL:nats://nats:4222}
+
+app:
+  internal:
+    api-key: ${APP_INTERNAL_API_KEY:change-me-in-config}
+  github:
+    app:
+      id: ${GITHUB_APP_ID:}
+      slug: ${GITHUB_APP_SLUG:itconnect-vcs}
+      private-key: ${GITHUB_APP_PRIVATE_KEY:}
+      webhook-secret: ${GITHUB_APP_WEBHOOK_SECRET:change-me}
+      frontend-url: ${APP_FRONTEND_URL:http://localhost:5173}
+  vcs:
+    webhook-base-url: ${VCS_WEBHOOK_BASE_URL:http://localhost:8080}
+    outbox:
+      poll-interval-ms: 300
+      batch-size: 50
+      max-attempts: 5
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server-backend:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
