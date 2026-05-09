@@ -16,7 +16,7 @@ spring:
     show-sql: false111111111цацацацац
     open-in-view: falsefefefefefefefefefefefefefefefwfefячячячячяч
   security:
-    oauth2:
+    oauth2:evevevevvev
       resourceserver:
         jwt:
           jwk-set-uri: ${JWK_SET_URI:http://auth-service-backend:8081/oauth2/jwks}цвцвцвцвцв
